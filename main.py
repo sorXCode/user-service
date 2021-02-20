@@ -1,11 +1,15 @@
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
-from users.views import user_router
+from users import user_router
 import uvicorn
+
+
 
 DATABASE_URL = "postgres://postgres:root@localhost/user-service"
 
+
 app = FastAPI()
+
 
 register_tortoise(
     app,
