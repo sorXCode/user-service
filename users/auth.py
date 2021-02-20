@@ -1,7 +1,8 @@
+import os
+
 from fastapi_users.authentication import JWTAuthentication
 
-SECRET = "SECRET"
-
+SECRET = os.environ["SECRET"]
 
 jwt_authentication = JWTAuthentication(secret=SECRET, lifetime_seconds=3600)
 

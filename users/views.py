@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request, status, Body
+from fastapi import APIRouter, Body, Request, status
 from fastapi.exceptions import HTTPException
 from fastapi_users import FastAPIUsers
 from fastapi_users.router.common import ErrorCode
@@ -42,8 +42,7 @@ user_router.include_router(
 
 
 def on_after_forgot_password(user: UserDB, token: str, request: Request):
-    # TODO: send forgot password mail
-    print(f"User {user.id} has forgot their password. Reset token: {token}")
+    raise HTTPException(detail={"token":token}, status_code=200)
 
 
 # password reset router
